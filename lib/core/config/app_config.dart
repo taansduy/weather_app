@@ -1,4 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:weather/core/constants/constants.dart';
+import 'package:weather/core/utils/map_ext.dart';
 
 class AppConfig {
   static late final String _apiKey;
@@ -6,8 +8,8 @@ class AppConfig {
   static bool _initialized = false;
 
   static void init() {
-    _apiKey = dotenv.env['API_KEY'] ?? '';
-    _baseUrl = dotenv.env['BASE_URL'] ?? '';
+    _apiKey = dotenv.env.parseString(AppConfigConstants.API_KEY);
+    _baseUrl = dotenv.env.parseString(AppConfigConstants.BASE_URL);
     _initialized = true;
   }
 
