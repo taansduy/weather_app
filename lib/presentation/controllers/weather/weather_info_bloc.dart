@@ -74,19 +74,12 @@ class WeatherInfoCubit extends Cubit<WeatherInfoState> {
     required GetForecastWeatherUseCase getForecastWeatherUseCase,
   })  : _getCurrentWeatherUseCase = getCurrentWeatherUseCase,
         _getForecastWeatherUseCase = getForecastWeatherUseCase,
-        super(FetchingWeatherInfo()){
-          Future.delayed(Duration(seconds: 3),(){
-            emit(state.failure(error: "Something went wrong at our end!"));
-          });
-        }
+        super(FetchingWeatherInfo());
 
   void fetchWeatherInfo() async {
-    emit(FetchingWeatherInfo());
+    emit(state.fetching());
     var weatherRequest = state.request;
     if (weatherRequest == null) {
-      Future.delayed(Duration(seconds: 3),(){
-      emit(state.failure(error: "Something went wrong at our end!"));
-      });
       return;
     }
     var results = await Future.wait([

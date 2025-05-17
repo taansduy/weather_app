@@ -1,7 +1,7 @@
 class CurrentWeatherInfo {
-  final String name;
+  final String cityName;
   final double celciusTemp;
 
-  CurrentWeatherInfo({required this.name, required this.celciusTemp});
+  CurrentWeatherInfo({required this.cityName, required this.celciusTemp});
 
 }
