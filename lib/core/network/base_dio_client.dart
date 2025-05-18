@@ -12,6 +12,9 @@ class BaseDioClient {
           connectTimeout: connectTimeout ?? Duration(seconds: 10),
           receiveTimeout: receiveTimeout ?? Duration(seconds: 10),
           sendTimeout: sendTimeout ?? Duration(seconds: 10),
+          headers: {
+            'Content-Type': 'application/json',
+          },
         )) {
     dio.interceptors.addAll(interceptors ?? []);
   }

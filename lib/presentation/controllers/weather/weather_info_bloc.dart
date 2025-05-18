@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather/core/utils/date_ext.dart';
 import 'package:weather/core/utils/result.dart';
 import 'package:weather/data/models/weather_request.dart';
 import 'package:weather/domain/entities/current/current_weather_info.dart';
@@ -90,12 +91,15 @@ class WeatherInfoCubit extends Cubit<WeatherInfoState> {
     var currentWeatherInfo = results[0];
     var forecastWeatherInfos = results[1];
     if (currentWeatherInfo is Success<CurrentWeatherInfo>) {
+      var forecastData = <ForecastWeatherInfo>[];
+      if(forecastWeatherInfos is Success<List<ForecastWeatherInfo>>) {
+        forecastData = forecastWeatherInfos.data;
+      }
+      forecastData.removeWhere((element) => element.date.isTheSameDate(DateTime.now()));
+      forecastData = forecastData.take(4).toList();
       emit(state.success(
         currentWeatherInfo: currentWeatherInfo.data,
-        forecastWeatherInfos:
-            forecastWeatherInfos is Success<List<ForecastWeatherInfo>>
-                ? forecastWeatherInfos.data
-                : [],
+        forecastWeatherInfos: forecastData,
       ));
     } else {
       emit(state.failure(error: "Something went wrong at our end!"));

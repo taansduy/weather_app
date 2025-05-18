@@ -16,7 +16,7 @@ class ForecastWeatherItemWidget extends StatelessWidget {
         children: [
           Expanded(
               child: Text(DateFormat("EEEE").format(forecastWeatherInfo.date), style: Theme.of(context).textTheme.bodyMedium,)),
-          Text("${forecastWeatherInfo.celciusTemp.toInt()} C", style: Theme.of(context).textTheme.bodyMedium,),
+          Text("${forecastWeatherInfo.celciusTemp.ceil()} C", style: Theme.of(context).textTheme.bodyMedium,),
         ],
       ),
     );
