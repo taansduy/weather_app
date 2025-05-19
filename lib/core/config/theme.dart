@@ -18,7 +18,12 @@ final ThemeData themeData = ThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: Color(0xFF4A4A4A),
       foregroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4)
     ),
+
   ),
   fontFamily: 'Roboto-Regular',
   colorScheme: colorScheme,
@@ -26,6 +31,7 @@ final ThemeData themeData = ThemeData(
     bodyLarge: TextStyle(fontSize: 20, color: AppColors.backgroundDark),
     bodyMedium: TextStyle(fontSize: 16, height: 1.2, color: AppColors.backgroundDark),
     labelLarge: TextStyle(fontSize: 96, fontWeight: FontWeight.bold, height: 1.2, color: AppColors.backgroundDark),
-    displayLarge: TextStyle(fontSize: 36,fontWeight: FontWeight.w100, height: 1.4, color: AppColors.backgroundDark),
+    displayLarge: TextStyle(fontSize: 54,fontWeight: FontWeight.w100, color: AppColors.backgroundDark),
+    displayMedium: TextStyle(fontSize: 36,fontWeight: FontWeight.w100, height: 1.4, color: AppColors.backgroundDark),
   ),
 );

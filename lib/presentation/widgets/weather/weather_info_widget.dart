@@ -53,7 +53,7 @@ class _WeatherInfoWidgetState extends State<WeatherInfoWidget>
           SizedBox(height: 56),
           Container(child: Text("${widget.currentWeatherInfo.celciusTemp.ceil()}°", style: Theme.of(context).textTheme.labelLarge,textAlign: TextAlign.center,)), 
           SizedBox(height: 24),
-          Text(widget.currentWeatherInfo.cityName, style: Theme.of(context).textTheme.displayLarge?.copyWith(color: AppColors.secondarySurface),textAlign: TextAlign.center,),
+          Text(widget.currentWeatherInfo.cityName, style: Theme.of(context).textTheme.displayMedium?.copyWith(color: AppColors.secondarySurface),textAlign: TextAlign.center,),
           SizedBox(height: 62),
           Expanded(
               child: SlideTransition(
