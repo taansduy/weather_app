@@ -8,9 +8,11 @@ class AppConfig {
   static bool _initialized = false;
 
   static void init() {
-    _apiKey = dotenv.env.parseString(AppConfigConstants.API_KEY);
-    _baseUrl = dotenv.env.parseString(AppConfigConstants.BASE_URL);
-    _initialized = true;
+    if (!_initialized) {
+      _apiKey = dotenv.env.parseString(AppConfigConstants.API_KEY);
+      _baseUrl = dotenv.env.parseString(AppConfigConstants.BASE_URL);
+      _initialized = true;
+    } 
   }
 
   static String get baseUrl {

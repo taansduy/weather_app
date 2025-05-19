@@ -11,7 +11,7 @@ import 'package:weather/presentation/widgets/weather/weather_fetching_widget.dar
 import 'package:weather/presentation/widgets/weather/weather_info_widget.dart';
 
 class WeatherInfoScreen extends StatefulWidget {
-  const WeatherInfoScreen._({super.key});
+  const WeatherInfoScreen({super.key});
 
   static Widget newInstance({
     required GetCurrentWeatherUseCase getCurrentWeatherUseCase,
@@ -22,7 +22,7 @@ class WeatherInfoScreen extends StatefulWidget {
         getCurrentWeatherUseCase: getCurrentWeatherUseCase,
         getForecastWeatherUseCase: getForecastWeatherUseCase,
       ),
-      child: const WeatherInfoScreen._(),
+      child: const WeatherInfoScreen(),
     );
   }
 

@@ -83,6 +83,7 @@ class _WeatherInfoWidgetState extends State<WeatherInfoWidget>
 
   @override
   void dispose() {
+    _controller.dispose();
     super.dispose();
   }
 }
